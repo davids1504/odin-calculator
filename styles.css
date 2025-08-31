@@ -19,10 +19,40 @@ h1 {
   text-align: center;
   margin: 40px 0;
 }
+
 #calculator-container {
   height: 500px;
   width: 300px;
   background-color: rgb(98, 69, 124);
   margin: 0 auto;
   display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+#calculator-screen {
+  width: 90%;
+  height: 100px;
+  margin-top: 20px;
+  background-color: rgb(0, 24, 0);
+  align-self: center;
+  text-align: right;
+}
+
+.calculator-buttons {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px;
+  align-content: space-around;
+}
+
+.calculator-buttons button {
+  width: 23%;
+  height: 50px;
+}
+
+#clear-button {
+  width: 90%;
 }
