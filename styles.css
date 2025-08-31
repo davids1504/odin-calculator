@@ -28,6 +28,7 @@ h1 {
   display: flex;
   flex-direction: column;
   gap: 30px;
+  border-radius: 4px;
 }
 
 #calculator-screen {
@@ -37,6 +38,10 @@ h1 {
   background-color: rgb(0, 24, 0);
   align-self: center;
   text-align: right;
+  font-size: 40px;
+  align-content: center;
+  color: white;
+  padding: 10px;
 }
 
 .calculator-buttons {
@@ -44,13 +49,18 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 5px;
   align-content: space-around;
 }
 
 .calculator-buttons button {
   width: 23%;
   height: 50px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.calculator-buttons button:hover {
+  background-color: rgb(150, 68, 113);
 }
 
 #clear-button {
