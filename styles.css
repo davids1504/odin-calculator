@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(209, 186, 156);
+  align-items: center;
+}
+
+h1 {
+  text-align: center;
+  margin: 40px 0;
+}
+#calculator-container {
+  height: 500px;
+  width: 300px;
+  background-color: rgb(98, 69, 124);
+  margin: 0 auto;
+  display: flex;
+}
