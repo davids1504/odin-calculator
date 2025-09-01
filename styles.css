@@ -29,6 +29,7 @@ h1 {
   flex-direction: column;
   gap: 30px;
   border-radius: 4px;
+  box-shadow: 10px 10px 5px black;
 }
 
 #calculator-screen {
@@ -57,6 +58,7 @@ h1 {
   height: 50px;
   font-weight: bold;
   font-size: 20px;
+  transition-duration: 0.2s;
 }
 
 .calculator-buttons button:hover {
@@ -65,4 +67,8 @@ h1 {
 
 #clear-button {
   width: 90%;
+}
+
+#execute {
+  width: 46%;
 }
