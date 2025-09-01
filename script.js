@@ -1,7 +1,7 @@
 let firstOperand = "EMPTY";
 let secondOperand = "EMPTY";
 let currentOperator = "EMPTY";
-let isOperatorActive = false;
+let operatorPending = false;
 
 const operations = {
   add(a, b) {
@@ -72,16 +72,21 @@ operatorButtons.forEach((button) => {
           return "";
       }
     }
-    if (firstOperand === "EMPTY" && !isOperatorActive) {
+    if (firstOperand === "EMPTY" && !operatorPending) {
       currentOperator = getCurrentOperator();
       firstOperand = parseInt(screen.textContent);
-      isOperatorActive = true;
+      operatorPending = true;
     } else {
+      // Prevents the calculator running an operation on consecutive presses
+      if (operatorPending) {
+        currentOperator = getCurrentOperator();
+        return;
+      }
       console.log("hi");
       secondOperand = parseInt(screen.textContent);
       screen.textContent = operate(firstOperand, secondOperand, currentOperator);
       firstOperand = operate(firstOperand, secondOperand, currentOperator);
-      isOperatorActive = true;
+      operatorPending = true;
       secondOperand = "EMPTY";
       currentOperator = getCurrentOperator();
     }
@@ -92,9 +97,9 @@ operatorButtons.forEach((button) => {
 let digitButtons = document.querySelectorAll(".digit-num");
 digitButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    if (isOperatorActive) {
+    if (operatorPending) {
       screen.textContent = parseInt(button.textContent);
-      isOperatorActive = false;
+      operatorPending = false;
     } else {
       if (screen.textContent.length >= 11) {
         return;
@@ -107,11 +112,12 @@ digitButtons.forEach((button) => {
 // Execute operation (=)
 let execute = document.querySelector("#execute");
 execute.addEventListener("click", () => {
-  if (firstOperand === "EMPTY" || currentOperator === "EMPTY") {
+  if (firstOperand === "EMPTY" || currentOperator === "EMPTY" || operatorPending === true) {
     return;
   }
   secondOperand = parseInt(screen.textContent);
   screen.textContent = operate(firstOperand, secondOperand, currentOperator);
+  operatorPending = true;
   clearAll();
 });
 
